@@ -17,10 +17,4 @@ public class RoleService {
        return roles;
     }
     
-    public String getRole_Name(String role_id) throws Exception {
-        RoleDB roleDB = new RoleDB();
-        String role_name = roleDB.getRole_Name(role_id);
-        return role_name;
-    }
-    
 }

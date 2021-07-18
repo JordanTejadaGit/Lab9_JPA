@@ -1,9 +1,11 @@
 
 package services;
 
+import dataaccess.RoleDB;
 import dataaccess.UserDB;
 import java.util.List;
 import models.User;
+import models.Role;
 
 public class UserService {
     
@@ -19,22 +21,24 @@ public class UserService {
         return user;
     }
     
-    public void insert(String first_name, String last_name, String email, boolean active, int role, String password) throws Exception{
-        User user = new User(first_name, last_name, email, active, role, password);
+    public void insert(String email, boolean active, String firstName, String lastName, String password, int roleID) throws Exception{
+        RoleDB roleDB = new RoleDB();
+        Role role = roleDB.get(roleID);
+        User user = new User(email, active, firstName, lastName, password, role);
         UserDB userDB = new UserDB();
         userDB.insert(user);
     }
     
-    public void update(String first_name, String last_name, String email, boolean active, int role, String password) throws Exception{
-        User user = new User(first_name, last_name, email, active, role, password);
+    public void update(String email, boolean active, String firstName, String lastName, String password, int roleID) throws Exception{
+        RoleDB roleDB = new RoleDB();
+        Role role = roleDB.get(roleID);
+        User user = new User(email, active, firstName, lastName, password, role);
         UserDB userDB = new UserDB();
         userDB.update(user);
     }
     
     public void delete(String email) throws Exception {
-        User user = new User();
-        user.setEmail(email);
         UserDB userDB = new UserDB();
-        userDB.delete(user);
+        userDB.delete(email);
     }
 }

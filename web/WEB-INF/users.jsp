@@ -32,12 +32,12 @@
                 <c:forEach items="${users}" var="user">
                     <tr>
                         <td>
-                            <input type="hidden" name="first_name" value="${user.first_name}">
-                            ${user.first_name}
+                            <input type="hidden" name="first_name" value="${user.firstName}">
+                            ${user.firstName}
                         </td>
                         <td>
-                            <input type="hidden" name="last_name" value="${user.last_name}">
-                            ${user.last_name}
+                            <input type="hidden" name="last_name" value="${user.lastName}">
+                            ${user.lastName}
 
                         </td>
                         <td>
@@ -45,7 +45,7 @@
                             ${user.email}
                         </td>
                         <td>
-                            ${user.role_name}
+                            ${user.role.roleName}
                         </td>
                         <td>
                             <input type ="radio" name="Selection" value="${user.email}">
@@ -102,7 +102,7 @@
                     <td>
                         <select name="addRole">
                             <c:forEach items="${roles}" var="roles">
-                                <option value="${roles.getRole_id()}">${roles.getRole_name()}</option>
+                                <option value="${roles.getRoleId()}">${roles.getRoleName()}</option>
                             </c:forEach>
                         </select>
                 </tr>
@@ -152,7 +152,7 @@
                     <td>
                         <select name="updateRole">
                             <c:forEach items="${roles}" var="roles">
-                                <option value="${roles.getRole_id()}">${roles.getRole_name()}</option>
+                                <option value="${roles.getRoleId()}">${roles.getRoleName()}</option>
                             </c:forEach>
                         </select>
                 </tr>

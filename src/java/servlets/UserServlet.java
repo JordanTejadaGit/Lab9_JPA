@@ -63,7 +63,7 @@ public class UserServlet extends HttpServlet {
                     String addLast = request.getParameter("addLast");
                     String addPassword = request.getParameter("addPassword");
                     int addRole = Integer.parseInt(request.getParameter("addRole"));
-                    us.insert(addFirst, addLast,addEmail, false, addRole, addPassword);
+                    us.insert(addEmail, false, addFirst, addLast, addPassword, addRole);
                     request.setAttribute("action", action);
                     response.sendRedirect("user");
                 }
@@ -78,7 +78,7 @@ public class UserServlet extends HttpServlet {
                     String editLast = request.getParameter("upadteLast");
                     String editPassword = request.getParameter("upadtePassword");
                     int addRole = Integer.parseInt(request.getParameter("updateRole"));
-                    us.update(editFirst, editLast, editEmail, false, addRole, editPassword);
+                    us.update(editEmail, false, editFirst, editLast, editPassword, addRole);
                     request.setAttribute("action", action);
                     response.sendRedirect("user");
                 }
